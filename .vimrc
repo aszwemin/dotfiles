@@ -22,6 +22,20 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 " Tab autocompletion
 Plugin 'rkulla/pydiction'
+" Set of javascript plugins
+Plugin 'pangloss/vim-javascript'
+" JSON syntax
+Plugin 'helino/vim-json'
+" Follow requires
+Plugin 'moll/vim-node'
+" HTML5
+Plugin 'othree/html5-syntax.vim'
+Plugin 'othree/html5.vim'
+" Less
+Plugin 'groenewege/vim-less'
+" JS libs
+Plugin 'othree/javascript-libraries-syntax.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +67,9 @@ set autoindent
 " expand tabs into spaces
 set expandtab
 
+" sensible backspacing on expanded tabs
+set softtabstop=4
+
 " when using the >> or << commands, shift lines by 4 spaces
 set shiftwidth=4
 
@@ -75,5 +92,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Tab completion config
+let g:syntastic_javascript_checkers = ['jshint']
+
+" Tab completion config for python
 let g:pydiction_location = '/Users/anna/.vim/bundle/pydiction/complete-dict'
+
+" Less
+autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd FileType less set omnifunc=csscomplete#CompleteCSS
+
+" JS libs
+let g:used_javascript_libs = 'jquery,underscore,react,flux,requirejs,jasmine'
